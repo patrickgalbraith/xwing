@@ -1,0 +1,225 @@
+.squad-description {
+    border: 1px solid #003032;
+    padding: 20px;
+    margin: 0 20px;
+
+    &:empty {
+        display: none;
+    }
+}
+
+.squad-viewer {
+    .pilots {
+        font-family: 'EurostileLTStd', sans-serif;
+        padding: 0 20px;
+        margin-bottom: 20px;
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .pilot {
+            padding-top: 40px;
+            margin-bottom: 5px;
+
+            .info {
+                position: relative;
+                padding: 36px 260px 36px 40px;
+                border: 1px solid #007b80;
+
+                .content {
+                    overflow: hidden;
+                    position: relative;
+                    max-width: 55%;
+                    display: inline-block;
+                    padding-right: 20px;
+                    vertical-align: middle;
+
+                    &:before {
+                        position: absolute;
+                        content: "";
+                        top: 0;
+                        left: 0;
+                        z-index: 1;
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 200px 0 0 200px;
+                        border-color: transparent transparent transparent #000000;
+                    }
+
+                    .title {
+                        font-size: 24px;
+                        background: #dff3f3;
+                        color: black;
+                        padding: 0 90px 0 48px;
+                        font-weight: 600;
+                        min-width: 380px;
+
+                        &.unique:before {
+                            content: "\2022";
+                            color: black;
+                            margin-right: 4px;
+                        }
+                    }
+
+                    .points {
+                        border-radius: 50%;
+                        position: absolute;
+                        top: -4px;
+                        right: 0;
+                        text-align: center;
+                        background: #245f5f;
+                        border: 6px solid black;
+                        padding: 7px 6px 6px 6px;
+                        font-weight: 600;
+                    }
+
+                    .stats {
+                        background: #245f5f;
+                        padding: 2px 90px 0 75px;
+                        font-weight: 900;
+                        font-size: 20px;
+
+                        > div {
+                            display: inline-block;
+                            text-shadow: 0 0 5px rgba(0,0,0,0.8);
+                            color: #3ea7a7;
+                        }
+
+                        .skill {
+                            color: #fb870c;
+                            margin-right: 10px;
+
+                            // &:before {
+                            //     content: "PS";
+                            //     color: #3ea7a7;
+                            //     margin-right: 4px;
+                            // }
+                        }
+
+                        .agility,
+                        .attack,
+                        .hull,
+                        .shields {
+                            &:before {
+                                content: "";
+                                background: black;
+                                display: inline-block;
+                                height: 26px;
+                                width: 26px;
+                                vertical-align: text-bottom;
+                                border-radius: 50%;
+                                margin-top: 0;
+                                margin-right: 3px;
+                                line-height: 26px;
+                                text-align: center;
+                                font-weight: normal;
+                            }
+                        }
+
+                        .agility {
+                            color: #72cf12;
+
+                            &:before {
+                                @include icon-agility;
+                                font-size: 16px;
+                            }
+                        }
+
+                        .attack {
+                            color: #ef0c2d;
+
+                            &:before {
+                                @include icon-attack;
+                                font-size: 16px;
+                            }
+                        }
+
+                        .hull {
+                            color: #f7f405;
+
+                            &:before {
+                                @include icon-hull;
+                                font-size: 16px;
+                            }
+                        }
+
+                        .shields {
+                            color: #8cdceb;
+
+                            &:before {
+                                @include icon-shield;
+                                font-size: 16px;
+                            }
+                        }
+                    }
+
+                    @media all and (max-width: 1200px) {
+                        width: 100%;
+                        max-width: none;
+                        display: block;
+                    }
+                }
+
+
+                > .text {
+                    display: inline-block;
+                    padding: 10px 20px;
+                    color: white;
+                    max-width: 49%;
+                    vertical-align: middle;
+                    font-size: 15px;
+                    font-family: 'EurostileLTStdCondensed', sans-serif;
+
+                    .xwing-miniatures-font {
+                        font-size: 1.1em;
+                    }
+
+                    &:empty {
+                        display: none;
+                    }
+
+                    @media all and (max-width: 1200px) {
+                        width: 100%;
+                        max-width: none;
+                        display: block;
+                        text-align: center;
+                        margin-top: 10px;
+                    }
+                }
+
+                > .image {
+                    position: absolute;
+                    top: -40px;
+                    right: 0;
+                    height: 215px;
+
+                    img {
+                        max-height: 100%;
+                    }
+                }
+            }
+        }
+
+        .upgrades {
+            padding: 20px;
+            //background: url("../img/card-standin.png") repeat-x;
+            //background-position: 20px;
+
+            .upgrade {
+                display: inline-block;
+                margin-right: 28px;
+                margin-bottom: 10px;
+                padding: 7px;
+                border: 1px solid #00c0cc;
+            }
+
+            &.empty {
+                visibility: hidden;
+            }
+        }
+    }
+}

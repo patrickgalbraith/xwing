@@ -1,0 +1,228 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>X-Wing - My Collection</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/main.css">
+
+        <link rel="stylesheet" href="font/eurostile-lt/stylesheet.css">
+        <link rel="stylesheet" href="font/eurostile-lt-cn/stylesheet.css">
+        <link rel="stylesheet" href="font/xwing/xwing-miniatures.css">
+
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+        <script id="tpl-pilot-item" type="text/template">
+            <div class="pilot" data-pilot="<%= pilot.canonical_name %>" data-squad-count="1" data-points="<%= pilot.total %>" data-total="<%= pilot.total %>">
+                <div class="info">
+                    <div class="content">
+                        <div class="title <%= (pilot.unique ? 'unique' : '') %>"><span class="squad-count"></span><%= pilot.name %></div>
+                        <div class="stats">
+                            <div class="skill"><%= pilot.skill %></div>
+                            <div class="agility"><%= pilot.ship.attack %></div>
+                            <div class="attack"><%= pilot.ship.agility %></div>
+                            <div class="hull"><%= pilot.ship.hull %></div>
+                            <div class="shields"><%= pilot.ship.shields %></div>
+                        </div>
+                        <div class="points"><%= pilot.total %></div>
+                    </div>
+                    <div class="text"><%- pilot.text %></div>
+                    <div class="image">
+                        <img src="img/ships/<%= pilot.getShipTileImg() %>" alt="">
+                    </div>
+                </div>
+                <ul class="upgrades <%= !pilot.upgrades ? 'empty' : '' %>">
+                    <% for(var upgradeSlot in pilot.upgrades) { %>
+                        <% pilot.upgrades[upgradeSlot].forEach(function(upgrade) { %>
+                            <li class="upgrade <%= upgradeSlot %>"><img src="img/upgrades/<%= upgrade %>.png"></li>
+                        <% }); %>
+                    <% } %>
+                </ul>
+            </div>
+        </script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div class="outer-container">
+            <header id="main-header" class="primary navigation">
+                <div class="container">
+                    <ul class="menu">
+                        <li>
+                            <a href="#">MY COLLECTION</a>
+                        </li>
+                        <li>
+                            <a href="#">MY SQUADS</a>
+                        </li>
+                    </ul>
+                    <div class="logo">
+                        <img src="img/logo.png" alt="Logo">
+                    </div>
+                </div>
+            </header>
+
+            <main class="container squad-viewer">
+                <div class="diorama">
+                    <div class="stage"></div>
+                    <div class="label">
+                        <div class="title">&nbsp;</div>
+                        <div class="points">00</div>
+                    </div>
+                </div>
+
+                <div class="squad-description"></div>
+
+                <div class="pilots"></div>
+            </main>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+
+        <script src="js/vendor/bin-packing/js/packer.js"></script>
+        <script src="js/vendor/bin-packing/js/packer.growing.js"></script>
+
+        <script src="js/vendor/xws/xws.js"></script>
+        <script src="js/vendor/xws/cards-common.js"></script>
+        <script src="js/vendor/xws/cards-en.js"></script>
+
+        <script src="js/vendor/ejs/ejs.js"></script>
+
+        <script src="js/tiles.js"></script>
+        <script src="js/diorama.js"></script>
+
+        <script>
+            $(document).ready(function() {
+                var global = window;
+
+                // Load card data in english
+                cardLoaders.English();
+
+                var $stage = $('.diorama .stage');
+                var diorama = new global.xwingapp.Diorama($stage, window.xwingapp.tiles);
+
+                var pilotItemTpl = ejs.compile($('#tpl-pilot-item').html());
+
+                // Pilot
+                var Pilot = function() {};
+
+                Pilot.prototype.getShipTileName = function() {
+                    switch(this.canonical_name) {
+                        case "soontirfel":
+                            return "tieinterceptor_ace";
+                            break;
+                        default:
+                            return this.ship.canonical_name;
+                    }
+                };
+
+                Pilot.prototype.getShipTileImg = function() {
+                    return window.xwingapp.tiles[this.getShipTileName()].image;
+                };
+
+                Pilot.fromCanonicalizedName = function(name) {
+                    var pilots = window.pilotsById;
+                    var data = null;
+                    var pilot = new Pilot();
+
+                    for(var key in pilots) {
+                        if(pilots[key].canonical_name === name) {
+                            data = $.extend({}, pilots[key]);
+                            break;
+                        }
+                    }
+
+                    if(!data.ship)
+                        data.ship = data.english_ship;
+
+                    data.ship = window.ships[data.ship];
+                    data.ship.tile = window.xwingapp.tiles[data.ship.canonical_name];
+
+                    return $.extend(pilot, data);
+                };
+
+                Pilot.fromXWS = function(xws) {
+                    var pilot = this.fromCanonicalizedName(xws.name);
+
+                    pilot.upgrades = xws.upgrades;
+
+                    return pilot;
+                };
+
+                // Squad functions
+                var getXWS = function(file) {
+                    return $.getJSON(file);
+                };
+
+                var importXWS = function(file) {
+                    getXWS(file).done(function(squad) {
+                        var total = 0;
+                        var dioramaShips = [];
+                        var uniquePilots = [];
+
+                        squad.pilots.forEach(function(xwsPilot) {
+                            var pilot = Pilot.fromXWS(xwsPilot);
+
+                            pilot.total = xwsPilot.points;
+
+                            console.log(pilot);
+
+                            dioramaShips.push(pilot.getShipTileName());
+
+                            // If pilot is already in list don't display it
+                            if(uniquePilots.indexOf(pilot.canonical_name) >= 0) {
+                                var $pilotEl = $('[data-pilot="'+pilot.canonical_name+'"]');
+                                var curSquadCount = +$pilotEl.attr('data-squad-count');
+
+                                $pilotEl.find('.squad-count').text((curSquadCount + 1) + 'x ');
+                                $pilotEl.attr('data-squad-count', curSquadCount + 1);
+                            } else {
+                                uniquePilots.push(pilot.canonical_name);
+                                $('.pilots').append(pilotItemTpl({pilot: pilot}));
+                            }
+
+                            total += +xwsPilot.points;
+                        });
+
+                        diorama.create(dioramaShips);
+
+                        $('.label > .title').text(squad.name ? squad.name : 'Unnamed Squad');
+                        $('.label > .points').text(total);
+                        $('.squad-description').text(squad.description ? squad.description : '');
+                    });
+                };
+
+                var xwss = [
+                    'data/sample/fat-han.xws',
+                    'data/sample/bombers.xws',
+                    'data/sample/kelvan.xws',
+                    'data/sample/tc1.xws',
+                    'data/sample/tc2.xws',
+                    'data/sample/tc3.xws',
+                    'data/sample/tc4.xws',
+                    'data/sample/tc5.xws',
+
+                    'data/sample/8ties.xws',
+                    'data/sample/7tiehowl.xws',
+                    'data/sample/6tievader.xws',
+                    'data/sample/6tiehighdamage.xws',
+                    'data/sample/doomswarm.xws',
+                    'data/sample/chiraneau-whisper.xws',
+                    'data/sample/whisperswarm.xws',
+                    'data/sample/bbbbz.xws',
+                    'data/sample/superfathan.xws',
+                    'data/sample/biggswalksthedogs.xws',
+                    'data/sample/panicattack.xws',
+                ];
+
+                importXWS(xwss[Math.floor(Math.random()*xwss.length)]);
+            });
+        </script>
+    </body>
+</html>

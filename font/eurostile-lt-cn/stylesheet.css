@@ -1,0 +1,25 @@
+@font-face {
+    font-family:'EurostileLTStdCondensed';
+    src: url('EurostileLTStd-Cn_gdi.eot');
+    src: url('EurostileLTStd-Cn_gdi.eot?#iefix') format('embedded-opentype'),
+        url('EurostileLTStd-Cn_gdi.woff') format('woff'),
+        url('EurostileLTStd-Cn_gdi.ttf') format('truetype'),
+        url('EurostileLTStd-Cn_gdi.svg#EurostileLTStd-Cn') format('svg');
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: condensed;
+    unicode-range: U+0020-25CA;
+}
+
+@font-face {
+    font-family:'EurostileLTStdCondensed';
+    src: url('EurostileLTStd-BoldCn_gdi.eot');
+    src: url('EurostileLTStd-BoldCn_gdi.eot?#iefix') format('embedded-opentype'),
+        url('EurostileLTStd-BoldCn_gdi.woff') format('woff'),
+        url('EurostileLTStd-BoldCn_gdi.ttf') format('truetype'),
+        url('EurostileLTStd-BoldCn_gdi.svg#EurostileLTStd-BoldCn') format('svg');
+    font-weight: 700;
+    font-style: normal;
+    font-stretch: condensed;
+    unicode-range: U+0020-25CA;
+}

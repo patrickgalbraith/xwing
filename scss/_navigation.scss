@@ -1,0 +1,33 @@
+.primary.navigation {
+    width: 100%;
+    font-size: 0;
+    padding: 14px 0;
+    border-bottom: 1px solid #007880;
+}
+.primary.navigation .logo {
+    display: inline-block;
+    text-align: right;
+    font-size: 16px;
+    width: 25%;
+    vertical-align: middle;
+}
+
+.primary.navigation .menu {
+    display: inline-block;
+    font-size: 16px;
+    width: 75%;
+    vertical-align: middle;
+    list-style-type: none;
+    margin: 0;
+    padding-left: 15px;
+}
+.primary.navigation .menu li {
+    display: inline-block;
+    padding: 0 15px;
+}
+.primary.navigation .menu a {
+    font-family: 'EurostileLTStd', sans-serif;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+}

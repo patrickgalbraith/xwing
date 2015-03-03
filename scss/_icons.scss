@@ -1,0 +1,498 @@
+@mixin icon-sloopleft {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0031";
+}
+
+@mixin icon-kturn {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0032";
+}
+
+@mixin icon-sloopright {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0033";
+}
+
+@mixin icon-turnleft {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0034";
+}
+
+@mixin icon-stop {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0035";
+}
+
+@mixin icon-turnright {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0036";
+}
+
+@mixin icon-bankleft {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0037";
+}
+
+@mixin icon-straight {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0038";
+}
+
+@mixin icon-bankright {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0039";
+}
+
+@mixin icon-astromech {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0041";
+}
+
+@mixin icon-bomb {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0042";
+}
+
+@mixin icon-cannon {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0043";
+}
+
+@mixin icon-modification {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0044";
+}
+
+@mixin icon-elite {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0045";
+}
+
+@mixin icon-cargo {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0047";
+}
+
+@mixin icon-hardpoint {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0048";
+}
+
+@mixin icon-illicit {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0049";
+}
+
+@mixin icon-title {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\004c";
+}
+
+@mixin icon-missile {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\004d";
+}
+
+@mixin icon-torpedo {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0050";
+}
+
+@mixin icon-system {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0053";
+}
+
+@mixin icon-team {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0054";
+}
+
+@mixin icon-turret {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0055";
+}
+
+@mixin icon-salvagedastromech {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0056";
+}
+
+@mixin icon-crew {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0057";
+}
+
+@mixin icon-boost {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0062";
+}
+
+@mixin icon-crit {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0063";
+}
+
+@mixin icon-hit {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0064";
+}
+
+@mixin icon-evade {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0065";
+}
+
+@mixin icon-focus {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0066";
+}
+
+@mixin icon-reinforce {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0069";
+}
+
+@mixin icon-jam {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\006a";
+}
+
+@mixin icon-cloak {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\006b";
+}
+
+@mixin icon-targetlock {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\006c";
+}
+
+@mixin icon-coordinate {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\006f";
+}
+
+@mixin icon-barrelroll {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0072";
+}
+
+@mixin icon-unique {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0075";
+}
+
+@mixin icon-recover {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "\0076";
+}
+
+@mixin icon-rebel {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "!";
+}
+
+@mixin icon-empire {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "@";
+}
+
+@mixin icon-scum {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "#";
+}
+
+@mixin icon-attack-turret {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "$";
+}
+
+@mixin icon-attack {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "%";
+}
+
+@mixin icon-agility {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "^";
+}
+
+@mixin icon-hull {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "&";
+}
+
+@mixin icon-shield {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "*";
+}
+
+@mixin icon-energy {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "(";
+}
+
+@mixin icon-modification {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "m";
+}
+
+@mixin icon-title {
+  font-family: XWing;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "t";
+}
+
+// Ships
+
+@mixin icon-ship-tieadvanced {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "A";
+}
+
+@mixin icon-ship-tiebomber {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "B";
+}
+
+@mixin icon-ship-tiedefender {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "D";
+}
+
+@mixin icon-ship-tiefighter {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "F";
+}
+
+@mixin icon-ship-tieinterceptor {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "I";
+}
+
+@mixin icon-ship-tiephantom {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "P";
+}
+
+@mixin icon-ship-awing {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "a";
+}
+
+@mixin icon-ship-bwing {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "b";
+}
+
+@mixin icon-ship-vt49decimator {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "d";
+}
+
+@mixin icon-ship-ewing {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "e";
+}
+
+@mixin icon-ship-firespray31 {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "f";
+}
+
+@mixin icon-ship-hwk290 {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "h";
+}
+
+@mixin icon-ship-ig2000 {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "i";
+}
+
+@mixin icon-ship-aggressor {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "i";
+}
+
+@mixin icon-ship-lambdaclassshuttle {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "l";
+}
+
+@mixin icon-ship-yt1300 {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "m";
+}
+
+@mixin icon-ship-yt2400freighter {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "o";
+}
+
+@mixin icon-ship-m3ainterceptor {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "s";
+}
+
+@mixin icon-ship-starviper {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "v";
+}
+
+@mixin icon-ship-xwing {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "x";
+}
+
+@mixin icon-ship-ywing {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "y";
+}
+
+@mixin icon-ship-z95headhunter {
+  font-family: XWingShip;
+  font-style: normal;
+  font-size: 1.5em;
+  content: "z";
+}

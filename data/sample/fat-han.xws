@@ -1,0 +1,52 @@
+{
+    "version": "0.2.0",
+    "name": "Fat Han",
+    "description": "The stereotypical 'Fat Han' build during wave 4.",
+    "faction": "rebels",
+    "points": 100,
+    "pilots": [
+        {
+            "name": "banditsquadronpilot",
+            "ship": "z95headhunter",
+            "points": 12
+        },
+        {
+            "name": "banditsquadronpilot",
+            "ship": "z95headhunter",
+            "points": 12
+        },
+        {
+            "name": "banditsquadronpilot",
+            "ship": "z95headhunter",
+            "points": 12
+        },
+        {
+            "name": "hansolo",
+            "ship": "yt1300",
+            "points": 64,
+            "upgrades": {
+                "ept": [
+                    "predator"
+                ],
+                "crew": [
+                    "lukeskywalker",
+                    "c3po"
+                ],
+                "title": [
+                    "millenniumfalcon"
+                ],
+                "mod": [
+                    "engineupgrade"
+                ]
+            }
+        }
+    ],
+    "vendor": {
+        "voidstate": {
+            "squadron_id": 111769,
+            "link": "http//xwing-builder.co.uk/view/111769/fat-han",
+            "builder": "Voidstate's Unofficial X-Wing Squadron Builder",
+            "builder_link": "http//xwing-builder.co.uk/build"
+        }
+    }
+}

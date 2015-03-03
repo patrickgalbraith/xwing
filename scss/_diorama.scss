@@ -1,0 +1,61 @@
+.diorama {
+    height: 410px;
+    width: 100%;
+    position: relative;
+    background: url('../img/backdrop-1.jpg') no-repeat;
+    background-size: 100% 75%;
+    background-position: center;
+}
+
+.diorama .stage {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 1px;
+    height: 1px;
+
+    /* @todo Should be calculated */
+    transform: scale(0.7);
+}
+
+.diorama .ship {
+    position: absolute;
+    /*background: rgba(255,0,0,0.2);*/
+    -webkit-filter: drop-shadow(2px -4px 4px rgba(0,0,0,0.4));
+    filter:         drop-shadow(2px -4px 4px rgba(0,0,0,0.4));
+}
+
+.diorama .label {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    background: #245f5f;
+    background: rgba(36,95,95, 0.38);
+    padding: 12px 40px 12px 30px;
+}
+.diorama .label .title {
+    font-family: 'EurostileLTStd', sans-serif;
+    font-weight: 600;
+    font-size: 28px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    transform: scaleX(0.85);
+}
+.diorama .label .points {
+    position: absolute;
+    top: 10px;
+    right: -20px;
+    background: #245f5f;
+    border-radius: 50%;
+    font-family: 'EurostileLTStd', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 11px 6px;
+    min-width: 45px;
+    text-align: center;
+    box-shadow: 0 0 1px 3px rgba(0,0,0,0.4);
+}

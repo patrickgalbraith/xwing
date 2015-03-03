@@ -1,0 +1,16 @@
+/* ==========================================================================
+   Base styling
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+.outer-container {
+    background: url('../img/star-backdrop.jpg') no-repeat top center;
+}
+
+.container {
+    max-width: 1360px;
+    margin: 0 auto;
+}
